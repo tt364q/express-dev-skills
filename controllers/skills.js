@@ -1,4 +1,4 @@
-const skill = require('../models/skill');
+// const skill = require('../models/skill');
 const Skill = require('../models/skill');
 
 
@@ -10,7 +10,8 @@ function index(req, res) {
 function show(req, res) {
     res.render('skills/show', {
         skill: Skill.getLevel(req.params.id),
-        Level: req.params.id
+        
+        // Level: req.params.id
         
     })
 }
@@ -21,7 +22,7 @@ function newSkill(req, res){
 
 function deleteSkill(req, res){
     Skill.deleteOne(req.params.id)
-    res.redirect('skills')
+    res.redirect('/skills')
 }
 
 
@@ -29,7 +30,7 @@ function deleteSkill(req, res){
 function create(req, res){
     // console.log(req.body)
     req.body.done = false
-    skill.create(req.body)
+    Skill.create(req.body)
     res.redirect('/skills');
 
 }
